@@ -132,6 +132,9 @@
            MOBILE NAV MENU
         ========================================== */
         @media (max-width: 991.98px) {
+            .malis{
+                display: none !important;
+            }
             .nav-menu {
                 position: fixed;
                 top: 0;
@@ -230,4 +233,5 @@
                 height: auto !important;
                 transform: none !important;
             }
+           
         }
