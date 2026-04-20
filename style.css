@@ -1,0 +1,233 @@
+ body {
+            font-family: 'Inter', sans-serif;
+            background-color: white;
+            color: #1A1A1A;
+            overflow-x: hidden;
+        }
+        
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+        
+        .navbar-blur {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+        }
+        
+        .ferrari-text-stroke {
+            -webkit-text-stroke: 1px #EF3340;
+            color: transparent;
+        }
+        
+        .stat-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            border-color: #EF3340;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        
+        .driver-card {
+            overflow: hidden;
+        }
+        
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: white;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #EF3340;
+            border-radius: 10px;
+        }
+
+        .btn-ferrari {
+            background-color: #EF3340;
+            color: white;
+            padding: 12px 32px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
+
+        .btn-ferrari:hover {
+            background-color: #1A1A1A;
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+        }   
+        .malis {
+            filter: saturate(0);
+            opacity: 0.15;
+            gap: 2em;
+            align-items: center;
+            justify-content: center;
+        }
+
+        
+        /* ==========================================
+           HAMBURGER BUTTON
+        ========================================== */
+        .hamburger-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1100;
+            transition: border-color 0.3s ease;
+        }
+
+        .hamburger-btn:hover {
+            border-color: #EF3340;
+        }
+
+        .hamburger-line {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: #1A1A1A;
+            border-radius: 2px;
+            transition: all 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+            transform-origin: center;
+        }
+
+        /* Animate to X when open */
+        .hamburger-btn.active .line-1 {
+            transform: translateY(7px) rotate(45deg);
+            background-color: #EF3340;
+        }
+        .hamburger-btn.active .line-2 {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger-btn.active .line-3 {
+            transform: translateY(-7px) rotate(-45deg);
+            background-color: #EF3340;
+        }
+
+        /* ==========================================
+           MOBILE NAV MENU
+        ========================================== */
+        @media (max-width: 991.98px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.97);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1050;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-20px);
+                transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            }
+
+            .nav-menu.open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .nav-menu .navbar-nav {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 12px !important;
+                margin: 0 !important;
+            }
+
+            .nav-menu .nav-link {
+                font-size: 18px !important;
+                letter-spacing: 0.15em;
+                padding: 12px 24px !important;
+                position: relative;
+                transition: color 0.3s ease, transform 0.3s ease;
+            }
+
+            .nav-menu .nav-link:hover {
+                color: #EF3340 !important;
+                transform: translateX(6px);
+            }
+
+            .nav-menu .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 4px;
+                left: 50%;
+                transform: translateX(-50%) scaleX(0);
+                width: 40px;
+                height: 2px;
+                background: #EF3340;
+                transition: transform 0.3s ease;
+            }
+
+            .nav-menu .nav-link:hover::after {
+                transform: translateX(-50%) scaleX(1);
+            }
+
+            /* Stagger animation for nav items */
+            .nav-menu.open .nav-item {
+                animation: navItemFadeIn 0.4s ease forwards;
+                opacity: 0;
+            }
+            .nav-menu.open .nav-item:nth-child(1) { animation-delay: 0.1s; }
+            .nav-menu.open .nav-item:nth-child(2) { animation-delay: 0.18s; }
+            .nav-menu.open .nav-item:nth-child(3) { animation-delay: 0.26s; }
+            .nav-menu.open .nav-item:nth-child(4) { animation-delay: 0.34s; }
+        }
+
+        @keyframes navItemFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Desktop: show menu normally */
+        @media (min-width: 992px) {
+            .hamburger-btn {
+                display: none !important;
+            }
+            .nav-menu {
+                display: flex !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                position: static !important;
+                background: none !important;
+                backdrop-filter: none !important;
+                height: auto !important;
+                transform: none !important;
+            }
+        }
