@@ -7,6 +7,7 @@ body {
   background-color: white;
   color: #1a1a1a;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 .font-orbitron {
@@ -141,12 +142,32 @@ body {
         ========================================== */
 @media (max-width: 991.98px) {
 
-  * {
-    box-sizing: border-box;
-  }  
   .malis {
     display: none !important;
   }
+  .nav-menu {
+    width: 100vw;         /* Gunakan 100vw, bukan 100% */
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+  }
+
+  /* Hero/section container — cegah bleed keluar */
+  .container,
+  .container-fluid,
+  section {
+    max-width: 100%;
+    overflow-x: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* Typography besar yang sering bikin overflow */
+  h1, h2, h3 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
   .nav-menu {
     position: fixed;
     top: 0;
